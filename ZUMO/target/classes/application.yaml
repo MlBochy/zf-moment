@@ -1,0 +1,28 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: zumo
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/ncmoment?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC
+    username: root
+    password: # 这里填入你的数据库密码
+  jackson:
+    default-property-inclusion: non_null
+  data:
+    redis:
+      host: # 这里填入你的redis地址
+      port: # 这里填入你的redis端口
+      lettuce:
+        pool:
+          max-active: 10
+          max-idle: 10
+          min-idle: 1
+          time-between-eviction-runs: 10s
+      database: 5 # 这里根据喜好填入你的redis数据库
+mybatis-plus:
+  type-aliases-package: com.zumo.entity
+logging:
+  level:
+    com.zumo: debug
